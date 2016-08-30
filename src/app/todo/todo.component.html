@@ -1,0 +1,4 @@
+<p [ngStyle]="{'text-decoration': todo.checked ? 'line-through': 'none'}">
+  <em>{{ todo?.id }}</em> {{ todo?.task }} {{todo?.created}} {{todo?.checked}}
+  <button (click)="onClose(todo)">x</button>
+</p>
