@@ -11,14 +11,12 @@ import { TodoComponent } from './../todo/todo.component';
 })
 
 export class TodoListComponent implements OnInit {
-  todos: Todo[] = [
-    {id: 1337, task: "Learn Javascript", checked: true, created: new Date()},
-    {id: 1338, task: "Learn Angular", checked: false, created: new Date()},
-    {id: 1339, task: "Learn MongoDB", checked: true, created: new Date()}
-  ]
+  todos: Todo[] = [];
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
