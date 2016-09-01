@@ -1,0 +1,9 @@
+<div>
+  <input
+    type="text"
+    id="todo-input-field"
+    placeholder="What needs to be done?"
+    [(ngModel)]="newTodo.task"
+    (blur)="save()"
+    (keypress)="onKeyPress($event)">
+</div>

@@ -61,23 +61,20 @@ export class LocalTodoStoreService {
   addTodo(todo: Todo, key: string = this.storageKey) {
     let currentTodos = this.currentTodos(key);
     todo.id = this.autoIncrement(key);
+    todo.created = new Date();
     currentTodos.push(todo);
     localStorage.setItem(key, JSON.stringify(currentTodos));
     return {message: 'success', data: this.getLatest(key)};
   }
 
   editTodo(id: number, key: string = this.storageKey, todo: Todo) {
-    let found = false;
     let currentTodos = this.currentTodos(key);
-    let result = currentTodos.map((el, index) => {
-      if (el.id === id) {
-        found = true;
-        el = todo;
-      }
-      return el;
-    })
+    let target = currentTodos.find((el) => el.id === id);
+    let targetIndex = currentTodos.indexOf(target);
+    currentTodos[targetIndex] = todo;
+    localStorage.setItem(key, JSON.stringify(currentTodos));
 
-    if (found) {
+    if (targetIndex !== -1) {
       return {message: 'success', data: this.getTodo(id, key).data};
     } else {
       return null;

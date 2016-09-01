@@ -1,4 +1,13 @@
-<p [ngStyle]="{'text-decoration': todo.checked ? 'line-through': 'none'}">
-  <em>{{ todo?.id }}</em> {{ todo?.task }} {{todo?.created}} {{todo?.checked}}
-  <button (click)="onClose(todo)">x</button>
+<p *ngIf="todo" [ngClass]="{ 'checked': todo?.checked }">
+  <input
+    [(ngModel)]="todo.checked"
+    type="checkbox"
+    [checked]="todo.checked"
+    (change)="onChecked(todo)"/>
+
+  <span (click)="onEdit()" *ngIf="!isEdit" class="task">{{todo?.task}}</span>
+  <input (blur)="onBlur()" *ngIf="isEdit" type="text" [(ngModel)]="todo.task" />
+  <button (click)="onDelete()">x</button>
+  <br>
+  <small class="date">{{ todo?.created | date: 'medium' }}</small>
 </p>

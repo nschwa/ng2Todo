@@ -1,0 +1,8 @@
+.checked .task {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.checked .date {
+  opacity: 0.8;
+}
