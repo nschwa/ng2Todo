@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Todo } from './../todo/todo';
 import { TodoComponent } from './../todo/todo.component';
 import { LocalTodoStoreService } from './../local-todo-store.service';
@@ -12,13 +12,29 @@ import { TodoInputComponent } from './../todo-input/todo-input.component';
   directives: [TodoComponent, TodoInputComponent]
 })
 
-export class TodoListComponent implements OnInit {
+export class TodoListComponent implements OnChanges, OnInit {
   todos: Todo[] = [];
 
   constructor(private _ltss: LocalTodoStoreService) {}
 
+  totalCount() {
+    return this.todos.length;
+  }
+
+  completedCount() {
+    return this.todos.filter(el => el.checked).length;
+  }
+
+  remainingCount() {
+    return this.totalCount() - this.completedCount();
+  }
+
   ngOnInit() {
     this.updateData();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes['todos']);
   }
 
   updateData() {

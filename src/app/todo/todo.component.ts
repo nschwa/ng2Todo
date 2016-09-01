@@ -28,7 +28,6 @@ export class TodoComponent implements OnInit {
   onDelete() {
     this._ltss.deleteTodo(this.todo.id, 'todoStore');
     this.onDeleted.emit('Todo Deleted');
-    this.todo = null;
   }
 
   onEdit(todo?: Todo) {

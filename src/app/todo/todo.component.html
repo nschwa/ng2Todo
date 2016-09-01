@@ -1,4 +1,4 @@
-<p *ngIf="todo" [ngClass]="{ 'checked': todo?.checked }">
+<p [ngClass]="{ 'checked': todo?.checked }">
   <input
     [(ngModel)]="todo.checked"
     type="checkbox"

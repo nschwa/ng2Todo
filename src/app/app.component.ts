@@ -12,5 +12,5 @@ import { LocalTodoStoreService } from './local-todo-store.service';
 })
 
 export class AppComponent {
-  title = 'app works!';
+  title = 'organiZr';
 }

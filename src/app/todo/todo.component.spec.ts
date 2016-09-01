@@ -46,10 +46,7 @@ describe('Component: Todo', () => {
       let element = fixture.nativeElement;
       component.todo = todo;
       fixture.detectChanges(); //trigger change detection
-
-      // expect(element.innerHTML).toContain(todo.id);
       expect(element.innerHTML).toContain(todo.task);
-      // expect(element.innerHTML).toContain(todo.created);
       done();
     })
     .catch(e => done.fail(e));
@@ -63,6 +60,7 @@ describe('Component: Todo', () => {
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
       component.todo = todo;
+      fixture.detectChanges(); //trigger change detection      
       expect(element.querySelectorAll('input[type="checkbox"]').length).not.toBe(0);
       done();
     })
