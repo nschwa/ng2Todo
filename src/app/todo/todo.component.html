@@ -1,13 +1,14 @@
-<p [ngClass]="{ 'checked': todo?.checked }">
-  <input
-    [(ngModel)]="todo.checked"
-    type="checkbox"
-    [checked]="todo.checked"
-    (change)="onChecked(todo)"/>
+<p [ngClass]="{ 'checked': todo?.checked }" class="app-todo">
+  <span class="row">
+    <input
+      [(ngModel)]="todo.checked"
+      type="checkbox"
+      [checked]="todo.checked"
+      (change)="onChecked(todo)"/>
 
-  <span (click)="onEdit()" *ngIf="!isEdit" class="task">{{todo?.task}}</span>
-  <input (blur)="onBlur()" *ngIf="isEdit" type="text" [(ngModel)]="todo.task" />
-  <button (click)="onDelete()">x</button>
-  <br>
+    <span (click)="onEdit()" *ngIf="!isEdit" class="task">{{todo?.task}}</span>
+    <input (blur)="onBlur()" (keypress)="onKeyPressed($event)" *ngIf="isEdit" type="text" [(ngModel)]="todo.task" />
+    <button (click)="onDelete()">x</button>
+  </span>
   <small class="date">{{ todo?.created | date: 'medium' }}</small>
 </p>

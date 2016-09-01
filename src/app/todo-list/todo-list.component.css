@@ -1,0 +1,12 @@
+.app-todo-list {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid lightblue;
+}
+
+@media screen and (max-width: 600px) {
+    .app-todo-list {
+        width: 95%;
+    }
+}

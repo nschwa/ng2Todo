@@ -1,0 +1,10 @@
+.app-todo-input {
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+    line-height: 2em;
+    padding-left: 0.5em;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid lightblue;
+}

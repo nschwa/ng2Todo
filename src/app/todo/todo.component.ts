@@ -20,6 +20,10 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
+  onKeyPressed(event) {
+    if (event.key === "Enter") this.onBlur();
+  }
+
   onChecked() {
     this.todo.checked = !this.todo.checked;
     this._ltss.editTodo(this.todo.id, 'todoStore', this.todo);

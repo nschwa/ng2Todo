@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { LocalTodoStoreService } from './local-todo-store.service';
 
@@ -8,7 +8,8 @@ import { LocalTodoStoreService } from './local-todo-store.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [TodoListComponent],
-  providers: [LocalTodoStoreService]
+  providers: [LocalTodoStoreService],
+  encapsulation: ViewEncapsulation.Native
 })
 
 export class AppComponent {

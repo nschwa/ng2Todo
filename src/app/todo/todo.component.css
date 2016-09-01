@@ -1,3 +1,9 @@
+.app-todo {
+  width: 100%;
+  font-size: 1em;
+  padding-left: 0.5em;
+}
+
 .checked .task {
   text-decoration: line-through;
   opacity: 0.8;
@@ -5,4 +11,9 @@
 
 .checked .date {
   opacity: 0.8;
+}
+
+.row {
+  line-height: 1.5em;
+  display: block;
 }
